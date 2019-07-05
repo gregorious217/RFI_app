@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+	<embed src={{ url_for('uploads', filename={{ filename }}) }}" type="application/pdf" />
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="w3-padding">
+<a href='{{ url_for('proj', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Project Home</a>
+<a href='{{ url_for('add_rfi', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Add RFI</a>
+<a href='{{ url_for('rfilog', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">RFI Log</a>
+{% if current_user.is_admin %}
+<a href='{{ url_for('manageteam', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Manage Team</a>
+{% endif %}
+</div>
+<div class="w3-container w3-center w3-padding">
+	<h3>project.name</h3>
+	<h2>Project RFI Log</h2>
+	<table class="w3-table-all w3-hoverable w3-center">
+		<tr>
+			<th>RFI Number - RFI Title</th>
+			<th></th>
+			<th>Date Received</th>
+			<th>Response Date</th>
+			<th>Assigned To</th>
+			<th>Response</th>
+		</tr>
+		{% if rfis %}
+		{% for rfi in rfis %}
+		<tr>
+			<td colspan="2"><a href="{{ url_for('RFI_Resp', id=project.id, rfi_number=rfi.rfi_number) }}" class="w3-button w3-indigo w3-hover-blue">
+				RFI {{ rfi.rfi_number }} - {{ rfi.title }}</a></td>
+			<td>{{ rfi.date_received }}</td>
+			{% if rfi.date_response %}
+			<td>{{ rfi.date_response }}</td>
+			{% else %}
+			<td><b>Awaiting Response</b></td>
+			{% endif %}
+			<td>{{ rfi.assigned_to }}</td>
+			{% if rfi.response_fname %}
+			<td>
+			<a href="{{ url_for('showresp', id=project.id, filename=rfi.response_fname) }}" class="w3-button w3-indigo w3-hover-blue">View Response</a></td>
+			{% else %}
+			<td><b>No Response Yet</b></td>
+			{% endif %}
+
+
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</table>
+</div>
+{% endblock %}

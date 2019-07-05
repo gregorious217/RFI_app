@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="w3-padding">
+    	<h1>Create a new project</h1>
+    	<form action="" method="post" novalidate>
+        	{{ form.hidden_tag() }}
+        	<p>
+        		{{ form.unit_name.label }} {{ form.unit_name(size=120) }}<br>
+        		{{ form.proj_title.label }} {{  form.proj_title(size=120) }}<br>
+        		{{ form.submit() }}
+         	</p>
+		</form>
+	</div>
+{% endblock %}

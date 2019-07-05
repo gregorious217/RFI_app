@@ -1,0 +1,100 @@
+2019-07-04 12:45:02,270 ERROR: Exception on /uploads/1/RFI4 - Fourth of July RFI with File.pdf [GET] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 131, in showfile
+    uploads = os.path.join(app.config['UPLOAD_FOLDER'],project.title)
+AttributeError: 'Project' object has no attribute 'title'
+2019-07-04 12:46:25,246 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 12:46:50,943 ERROR: Exception on /add_rfi/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 39, in add_rfi
+    filepath = os.path.join('uploads',project.title,filename)
+AttributeError: 'Project' object has no attribute 'title'
+2019-07-04 12:47:28,178 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 12:47:48,608 ERROR: Exception on /add_rfi/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 40, in add_rfi
+    form.UploadFile.data.save(filepath)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\werkzeug\datastructures.py", line 2799, in save
+    dst = open(dst, "wb")
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\Replace Santa Rosa Sewer Loop\\RFI5 - files are hard.pdf'
+2019-07-04 12:49:09,303 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 12:49:38,001 ERROR: Exception on /add_rfi/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 41, in add_rfi
+    os.mkdir(filepath)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'uploads\\Replace Santa Rosa Sewer Loop\\RFI5 - files are hard.pdf'
+2019-07-04 12:52:26,892 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 12:52:42,343 ERROR: Exception on /add_rfi/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 41, in add_rfi
+    os.mkdir(filepath)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\Files\\Greg\\Personal\\Hobbies\\Python\\RFI_WebApp\\uploads\\Replace Santa Rosa Sewer Loop\\RFI5 - Test RFI Upload.pdf'
+2019-07-04 12:54:21,626 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]

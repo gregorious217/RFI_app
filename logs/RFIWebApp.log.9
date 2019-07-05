@@ -1,0 +1,60 @@
+2019-07-04 12:05:30,693 ERROR: Exception on /manageteam/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 144, in manageteam
+    project= project
+  File "<string>", line 4, in __init__
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\util\compat.py", line 154, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\ext\declarative\base.py", line 840, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'project' is an invalid keyword argument for Team
+2019-07-04 12:06:47,037 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 12:06:54,444 ERROR: Exception on /manageteam/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\base.py", line 399, in _entity_descriptor
+    return getattr(entity, key)
+AttributeError: type object 'Team' has no attribute 'project'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 146, in manageteam
+    exists = Team.query.filter_by(project=int(id),role=form.role.data).first()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1796, in filter_by
+    for key, value in kwargs.items()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1796, in <listcomp>
+    for key, value in kwargs.items()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\base.py", line 402, in _entity_descriptor
+    "Entity '%s' has no property '%s'" % (description, key)
+sqlalchemy.exc.InvalidRequestError: Entity '<class 'app.models.Team'>' has no property 'project'
+2019-07-04 12:07:27,163 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]

@@ -1,0 +1,101 @@
+2019-07-04 12:07:33,907 ERROR: Exception on /manageteam/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.InterfaceError: Error binding parameter 4 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 149, in manageteam
+    db.session.commit()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
+    self.transaction.commit()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\session.py", line 494, in commit
+    self._prepare_impl()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2459, in flush
+    self._flush(objects)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\util\compat.py", line 154, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2557, in _flush
+    flush_context.execute()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 245, in save_obj
+    insert,
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1138, in _emit_insert_statements
+    statement, params
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\util\compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 4 - probably unsupported type.
+[SQL: INSERT INTO team (role, firstname, lastname, email, project_id) VALUES (?, ?, ?, ?, ?)]
+[parameters: ('Engineer', 'Gregory', 'Stone', 'greg.michael.stone@gmail.com', <Project 1>)]
+(Background on this error at: http://sqlalche.me/e/rvf5)
+2019-07-04 12:08:27,501 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 12:08:35,516 ERROR: Exception on /manageteam/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 153, in manageteam
+    return redirect(url_for('manageteam'))
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'manageteam'. Did you forget to specify values ['id']?

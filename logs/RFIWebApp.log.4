@@ -1,0 +1,82 @@
+2019-07-04 12:54:38,557 ERROR: Exception on /add_rfi/1 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 40, in add_rfi
+    fullpath =os,path.join(filepath,filename)
+NameError: name 'path' is not defined
+2019-07-04 12:54:54,516 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:32:16,425 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:35:06,149 ERROR: Exception on /RFI_Resp/1/5 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 124, in RFI_Resp
+    create_pdf(rfi,project)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 189, in create_pdf
+    pdf.headers(rfi.rfi_number, rfi.title, rfi.date_received, rfi.date_response, rfi.dwg_refer,rfi.spec_refer,rfi.response,rfi.reviewer)
+TypeError: headers() missing 2 required positional arguments: 'unit_name' and 'project_title'
+2019-07-04 13:35:40,910 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:35:46,052 ERROR: Exception on /RFI_Resp/1/5 [POST] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+Traceback (most recent call last):
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+    raise value
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 124, in RFI_Resp
+    create_pdf(rfi,project)
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 192, in create_pdf
+    fpath=os.path.join(app.config['RESPONSES_FOLDER'], project.title)
+AttributeError: 'Project' object has no attribute 'title'
+2019-07-04 13:36:11,997 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:40:00,274 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:44:36,595 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:44:43,270 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:45:21,790 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:45:27,866 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:50:08,523 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:50:31,795 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:50:40,536 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:50:44,584 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:51:35,519 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:51:57,408 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:52:37,730 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:52:54,867 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:53:33,201 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:53:41,489 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:55:45,627 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 13:57:41,960 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]

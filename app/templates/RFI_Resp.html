@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w3-padding">
+<a href='{{ url_for('proj', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Project Home</a>
+<a href='{{ url_for('add_rfi', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Add RFI</a>
+<a href='{{ url_for('rfilog', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">RFI Log</a>
+{% if current_user.is_admin %}
+<a href='{{ url_for('manageteam', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Manage Team</a>
+{% endif %}
+</div>
+<div class="w3-padding">
+    <h3>Respond to RFI</h3>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+        	RFI Number: {{ rfi.rfi_number }}<br>
+        	Title: {{ rfi.title }}
+        </p>
+        <p>
+        	Date Received: {{ rfi.date_received }} {{ form.date_response.label }}{{ form.date_response(size=40) }}
+        </p>
+        <p>
+        	{{ form.response.label }}<br>
+        	{{ form.response(cols=70, rows=20) }}
+        </p>
+        <p>
+        	{{ form.reviewer.label }} {{form.reviewer(size=40) }}
+        </p>
+        <p>
+        	{{ form.submit() }}
+        </p>
+    </form>
+</div>
+<a href={{ url_for('showfile', id=project.id, filename=rfi.filename) }} class="w3-button w3-indigo w3-hover-blue">View RFI</a>
+{% endblock %}

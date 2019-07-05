@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include '_proj_nav.html' %}
+<div class ="w3-container w3-center">
+	<h2>Submit an RFI</h2>
+	<div class="w3-left-align" padding-left=20px>	
+	<form action="" method="post" enctype="multipart/form-data" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.rfi_number.label }} {{ form.rfi_number(size=4) }}
+			{% for error in form.rfi_number.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+		</p>
+		<p>
+			{{ form.title.label }} {{ form.title(size=70) }}
+			{% for error in form.title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+		</p>
+		<p>
+			{{ form.date_received.label }} {{ form.date_received(size=20) }}
+			{% for error in form.date_received.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+		</p>
+		<p>
+			{{ form.dwg_refer.label }} {{ form.dwg_refer(size=15) }}{{ form.spec_refer.label }} {{ form.spec_refer(size=15) }}
+		</p>
+		<p>
+			{{ form.cost_change.label }} {{ form.cost_change() }}<br>
+			{{ form.time_change.label }} {{ form.time_change() }}
+		</p>
+		<p>
+			{{ form.assigned_to.label }} {{ form.assigned_to() }}
+		</p>
+		<p>
+			Upload RFI PDF: {{ form.UploadFile }}
+		</p>
+		<p>
+			{{ form.submit() }}
+		</p>
+	</form>
+	</div>
+</div>
+{% endblock %}
