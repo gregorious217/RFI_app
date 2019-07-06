@@ -68,3 +68,4 @@ WHERE project.id = ?
 2019-07-05 11:34:53,750 INFO: RFIWebApp Startup [in /home/greg/Programming/RFI_WebApp/app/__init__.py:44]
 2019-07-05 11:37:49,386 INFO: RFIWebApp Startup [in /home/greg/Programming/RFI_WebApp/app/__init__.py:44]
 2019-07-05 12:08:17,261 INFO: RFIWebApp Startup [in /home/greg/Programming/RFI_WebApp/app/__init__.py:44]
+2019-07-05 20:33:15,730 INFO: RFIWebApp Startup [in /home/greg/Programming/RFI_app/app/__init__.py:44]

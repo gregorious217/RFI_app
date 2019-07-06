@@ -1,5 +1,5 @@
-from app import app
-from app.models import User, Rfi, Team
+from app import app, db
+from app.models import User, Rfi, Team, Project
 
 
 @app.shell_context_processor
