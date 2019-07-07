@@ -9,33 +9,19 @@ from werkzeug import secure_filename
 import os
 from functools import wraps
 from app.pdf_create import RFI_PDF
-
-def team_only(f):
-	@wraps(f)
-	def decorated_function(*args, **kwargs):
-		proj_id=kwargs['id']
-		proj = Project.query.filter_by(id=proj_id).first_or_404()
-		team=Team.query.filter_by(project_id=proj.id).all()
-		team_emails = [member.email for member in team]
-		if not current_user.is_admin:
-			if current_user.email not in team_emails:
-				flash('User {} does not have permission to view this page. If you believe this is an error please contact project manager or site administrator.'.format(current_user.username))
-				return redirect(url_for('index'))
-		return f(*args,**kwargs)
-	return decorated_function
+from app.permissions import team_only, design_team_only, construction_team_only
 
 @app.route('/')
 @app.route('/index')
 @login_required
 def index():
 	projects = Project.query.order_by(Project.unit_name.asc(), Project.proj_title.asc())
-
 	return render_template('index.html', title='Home', projects=projects)
 
 
 @app.route('/add_rfi/<id>', methods=['GET', 'POST'])
 @login_required
-@team_only
+@construction_team_only
 def add_rfi(id):
 	project = Project.query.filter_by(id=id).first_or_404()
 	form = RFIForm()
@@ -115,7 +101,7 @@ def register():
 
 @app.route('/RFI_Resp/<id>/<rfi_number>',methods=['GET', 'POST'])
 @login_required
-@team_only
+@design_team_only
 def RFI_Resp(id,rfi_number):
 	form = ResponseForm()
 	rfi = Rfi.query.filter_by(project_id=int(id), rfi_number=rfi_number).first_or_404()
@@ -145,7 +131,7 @@ def showfile(id, filename):
 
 @app.route('/manageteam/<id>', methods=['GET', 'POST'])
 @login_required
-@team_only
+@construction_team_only
 def manageteam(id):
 	project = Project.query.filter_by(id=id).first_or_404()
 	form = TeamForm()
@@ -189,8 +175,8 @@ def showresp(id, filename):
 	return send_from_directory(directory=uploads, filename=filename)
 
 @app.route('/proj/<id>')
-@team_only
 @login_required
+@team_only
 def proj(id):
 	form = ResponseForm()
 	project = Project.query.filter_by(id=id).first_or_404()
