@@ -12,7 +12,6 @@ class RFI_PDF(FPDF):
         self.cell(80)
         self.cell(30, 10, 'RFI RESPONSE', 0, 0, 'C')
 
- 
     # Page footer
     def footer(self):
         # Position at 0.75 cm from bottom

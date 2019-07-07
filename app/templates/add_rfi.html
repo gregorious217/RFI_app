@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% include '_proj_nav.html' %}
+<div class="w3-padding">
+		<a href='{{ url_for('proj', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Project Home</a>
+		<a href='{{ url_for('add_rfi', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Add RFI</a>
+		<a href='{{ url_for('rfilog', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">RFI Log</a>
+		{% if current_user.is_admin %}
+		<a href='{{ url_for('manageteam', id=project.id) }}' class="w3-button w3-indigo w3-hover-blue">Manage Team</a>
+		{% endif %}
+</div>
 <div class ="w3-container w3-center">
 	<h2>Submit an RFI</h2>
 	<div class="w3-left-align" padding-left=20px>	

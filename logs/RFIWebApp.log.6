@@ -1,4 +1,4 @@
-2019-07-04 12:35:11,808 ERROR: Exception on /rfilog/1 [GET] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+2019-07-04 13:58:27,256 ERROR: Exception on /rfilog/1 [GET] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
 Traceback (most recent call last):
   File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,39 +14,80 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 91, in rfilog
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 94, in rfilog
     return render_template('RFI_Log.html', title='RFI Log', rfis=rfis, project=project)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
   File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\RFI_Log.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\base.html", line 40, in top-level template code
-    {% block content %}{% endblock %}
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\RFI_Log.html", line 25, in block "content"
-    <td><a href="{{ url_for('RFI_Resp', rfi_number=rfi.rfi_number) }}">{{ rfi.rfi_number }}</a></td>
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'RFI_Resp' with values ['rfi_number']. Did you forget to specify values ['id']?
-2019-07-04 12:38:01,068 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
-2019-07-04 12:38:47,931 ERROR: Exception on /rfilog/1 [GET] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\RFI_Log.html", line 39, in template
+    {% endfor %}
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 212, in parse_if
+    node.body = self.parse_statements(('name:elif', 'name:else',
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 212, in parse_if
+    node.body = self.parse_statements(('name:elif', 'name:else',
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2019-07-04 14:00:51,588 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 14:01:31,394 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 14:35:08,075 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 16:27:41,939 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 16:31:16,337 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 16:34:16,121 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 16:34:22,988 ERROR: Exception on /proj/1 [GET] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
 Traceback (most recent call last):
   File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -62,51 +103,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 91, in rfilog
-    return render_template('RFI_Log.html', title='RFI Log', rfis=rfis, project=project)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\RFI_Log.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\base.html", line 40, in top-level template code
-    {% block content %}{% endblock %}
-  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\templates\RFI_Log.html", line 25, in block "content"
-    <td><a href="{{ url_for('RFI_Resp', rfi_number=rfi.rfi_number) }}">{{ rfi.rfi_number }}</a></td>
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2080, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'RFI_Resp' with values ['rfi_number']. Did you forget to specify values ['id']?
-2019-07-04 12:39:45,223 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
-2019-07-04 12:39:52,127 ERROR: Exception on /uploads/1/RFI3 - Third Sewer RFI.pdf [GET] [in d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "d:\files\greg\personal\hobbies\python\rfi_webapp\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: showfile() got an unexpected keyword argument 'id'
-2019-07-04 12:44:18,641 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+  File "D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\routes.py", line 16, in decorated_function
+    team=Team.query.filter_by(project_id=int(id)).order_by(Team.role.asc()).all()
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'builtin_function_or_method'
+2019-07-04 16:35:46,510 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]
+2019-07-04 16:40:48,720 INFO: RFIWebApp Startup [in D:\Files\Greg\Personal\Hobbies\Python\RFI_WebApp\app\__init__.py:44]

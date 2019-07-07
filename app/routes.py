@@ -9,7 +9,7 @@ from werkzeug import secure_filename
 import os
 from functools import wraps
 from app.pdf_create import RFI_PDF
-from app.permissions import team_only, design_team_only, construction_team_only
+from app.permissions import team_only, design_team_only, construction_team_only, construction_manager_only
 
 @app.route('/')
 @app.route('/index')
@@ -50,7 +50,7 @@ def add_rfi(id):
 		db.session.commit()
 		flash('RFI {} - {} Submitted'.format(form.rfi_number.data, form.title.data))
 		return redirect(url_for('rfilog', id=project.id))
-	return render_template('add_rfi.html', title='Add RFI', form=form)
+	return render_template('add_rfi.html', title='Add RFI', form=form, project=project)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -80,7 +80,7 @@ def logout():
 @app.route('/rfilog/<id>')
 @login_required
 @team_only
-def rfilog(id):
+def rfilog(id):	
 	rfis=Rfi.query.filter_by(project_id=int(id)).order_by(Rfi.rfi_number.asc()).all()
 	project = Project.query.filter_by(id=id).first_or_404()
 	return render_template('RFI_Log.html', title='RFI Log', rfis=rfis, project=project)
@@ -131,7 +131,7 @@ def showfile(id, filename):
 
 @app.route('/manageteam/<id>', methods=['GET', 'POST'])
 @login_required
-@construction_team_only
+@construction_manager_only
 def manageteam(id):
 	project = Project.query.filter_by(id=id).first_or_404()
 	form = TeamForm()
@@ -180,7 +180,6 @@ def showresp(id, filename):
 def proj(id):
 	form = ResponseForm()
 	project = Project.query.filter_by(id=id).first_or_404()
-	
 	return render_template('proj.html', project=project)  
 
 def create_pdf(rfi,project):
